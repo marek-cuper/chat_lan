@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 
-public class NastavenieMenaPouzivatelovi {
+public class NastavenieMenaPouzivateloviIpServera {
 
-    public static void NastavenieMena(String Meno){
+    public static void NastavenieMena(String Meno, String IpServera){
         Properties prop = new Properties();
         OutputStream output = null;
 
@@ -18,6 +18,7 @@ public class NastavenieMenaPouzivatelovi {
 
             // set the properties value
             prop.setProperty("Meno", Meno);
+            prop.setProperty("IpServera", IpServera);
 
 
             // save properties to project root folder
