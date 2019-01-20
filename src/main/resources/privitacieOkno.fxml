@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controller.Controller">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controller.PrivitacieOknoController">
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Button fx:id="button" layoutX="255.0" layoutY="271.0" mnemonicParsing="false" onAction="#stlaceneTlacitko" text="Pokracovat" />
-            <TextField fx:id="MenoPouzivatela" layoutX="215.0" layoutY="174.0" promptText="Sem zadaj meno" onKeyPressed="#zadaneMenoPouzivatela"/>
+            <Button fx:id="TlacitkoPokracovat" layoutX="255.0" layoutY="271.0" mnemonicParsing="false" onAction="#PrivitacieOknoTlacitko" text="Pokracovat" />
+            <TextField fx:id="TextFieldMenoPouzivatela" layoutX="215.0" layoutY="174.0"  promptText="Sem zadaj meno" />
             <TextField fx:id="IpServera" layoutX="215.0" layoutY="224.0" promptText="Sem zadaj Ip servera" />
-            <Label layoutX="141.0" layoutY="14.0" prefHeight="145.0" prefWidth="318.0" text="             Vitajte v aplikacii Lan-Chat!!!                Po zadani mena, ip servera a stlaceni tlacitka POKRACOVAT sa zapne chatove okienko so vsetkymi pouzivatelmi ktori su pripojeni." wrapText="true" />
+            <Label layoutX="141.0" layoutY="14.0" prefHeight="145.0" prefWidth="318.0" text="             Vitajte v aplikacii Chat-Lan!!!                Po zadani mena, ip servera a stlaceni tlacitka POKRACOVAT sa zapne chatove okienko so vsetkymi pouzivatelmi ktori su pripojeni." wrapText="true" />
             <Label layoutX="15.0" layoutY="341.0" prefHeight="16.0" prefWidth="570.0" text="Poznamka: Meno a ip servera budete moct zmenit uz len v priecinku s nastaveniami" />
          </children></Pane>
    </children>

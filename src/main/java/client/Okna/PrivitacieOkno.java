@@ -17,7 +17,7 @@ public class PrivitacieOkno {
             FXMLLoader fxmloader = new FXMLLoader(getClass().getClassLoader().getResource("privitacieOkno.fxml"));
             Parent root1 = (Parent)fxmloader.load();
             Stage stage = new Stage();
-            stage.setTitle("Lan-Chat");
+            stage.setTitle("Chat-Lan");
             stage.setScene(new Scene(root1));
             stage.show();
         } catch(Exception ex){
