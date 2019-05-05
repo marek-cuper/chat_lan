@@ -1,7 +1,7 @@
 package client.controller;
 
 import client.GlobalnePremenne;
-import client.PosielacSpravy;
+import client.Posielace;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -12,14 +12,15 @@ public class ChatovacieOknoController {
     @FXML
     public Button TlacitkoPoslatSpravu;
 
+    @FXML
     public TextField Sprava;
 
-    @FXML
-
     public void PoslatSpravu(){
-        PosielacSpravy PS = new PosielacSpravy();
+
+
+        Posielace ps = new Posielace();
         GlobalnePremenne GP = new GlobalnePremenne();
-        PS.poslanieSpravy(GP.MenoPouzivatela, Sprava.getText());
+        ps.posielacSpravy(GP.MenoPouzivatela, Sprava.getText());
         System.out.println(GP.MenoPouzivatela+"v ChatovacomOknecontroller");
     }
 

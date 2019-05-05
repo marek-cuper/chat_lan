@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controller.RegistracneOknoController">
+   <children>
+      <Button fx:id="TlacitkoRegistrovat" layoutX="94.0" layoutY="236.0" mnemonicParsing="false" onAction="#funkciaRegistrovat" text="Registrovat" />
+      <TextField fx:id="TextFieldMeno" layoutX="40.0" layoutY="137.0" promptText="Meno" />
+      <TextField fx:id="TextFieldHeslo" layoutX="40.0" layoutY="180.0" promptText="Heslo" />
+      <Label layoutX="40.0" layoutY="14.0" prefHeight="103.0" prefWidth="171.0" text="Meno a heslo musi pozostavat z pismen a cisel" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>

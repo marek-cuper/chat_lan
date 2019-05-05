@@ -13,15 +13,15 @@
 //
 //    public static void main(String[] args){
 //
-//    System.out.println("zaciatok");
+//    System.posielaciOut.println("zaciatok");
 //        //**************************************************************************************************************
 //        //Zistujem ci je toto prve prihlasenie(Zisti to podla toho ci uz je vytvoreny subor nastavenia kde ma zapisane meno)
 //        // ak ano tak sa ho opytam na meno a zapisem si ho do nastaveni ak si ho bude chciet zmenit neskor bude to musiet urobit manualne
-//        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner(System.posielaciIn);
 //        File f = new File("client/nastavenia.pouzivatela");
 //
 //        if(!f.exists()){
-//            System.out.println("Vitajte v aplikacii Chat Lan! Zadajte vase pouzivatelske meno ktorym budete prihlaseny do aplikacii: ");
+//            System.posielaciOut.println("Vitajte v aplikacii Chat Lan! Zadajte vase pouzivatelske meno ktorym budete prihlaseny do aplikacii: ");
 //            String MenoPouzivatela = sc.nextLine();
 //            client.NastavenieMenaPouzivateloviIpServera NMP = new client.NastavenieMenaPouzivateloviIpServera();
 //            NMP.NastavenieMena(MenoPouzivatela);
@@ -32,14 +32,14 @@
 //        //**************************************************************************************************************
 //
 //
-//        client.PosielacSpravy ps = new client.PosielacSpravy();
+//        client.Posielace ps = new client.Posielace();
 //
 //        while (running) {
-//            System.out.println("napis spravu ktoru chces poslat na server: ");
+//            System.posielaciOut.println("napis spravu ktoru chces poslat na server: ");
 //
 //            String Text = sc.nextLine();
 //
-//            ps.poslanieSpravy(MenoPouzivatela, Text);
+//            ps.posielacSpravy(MenoPouzivatela, Text);
 //        }
 //
 //    }

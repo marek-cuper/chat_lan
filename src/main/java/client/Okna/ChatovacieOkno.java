@@ -1,6 +1,5 @@
 package client.Okna;
 
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,8 +9,8 @@ public class ChatovacieOkno {
 
     public void FunkciaChatovacieOkno(){
 
-        System.out.println("Otvorenie chatovacieho okna");
 
+        System.out.println("Otvorenie chatovacieho okna");
 
 
         try {

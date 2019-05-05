@@ -5,16 +5,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class PrivitacieOkno {
+public class PrihlasoacieOkno {
 
     public void FunkciaPrivitacieOkno(){
 
 
-        System.out.println("Otvorenie privitacieho okna");
+        System.out.println("Otvorenie prihlasovacie okna");
 
 
         try {
-            FXMLLoader fxmloader = new FXMLLoader(getClass().getClassLoader().getResource("privitacieOkno.fxml"));
+            FXMLLoader fxmloader = new FXMLLoader(getClass().getClassLoader().getResource("PrihlasoacieOkno.fxml"));
             Parent root1 = (Parent)fxmloader.load();
             Stage stage = new Stage();
             stage.setTitle("Chat-Lan");
@@ -23,9 +23,6 @@ public class PrivitacieOkno {
         } catch(Exception ex){
             System.out.println("Neda sa nacitat nove okno");
         }
-
-
-
-
     }
+
 }
