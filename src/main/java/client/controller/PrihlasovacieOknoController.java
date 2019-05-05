@@ -36,8 +36,8 @@ public class PrihlasovacieOknoController {
         Posielace PS = new Posielace();
         //PS.posielacSpravy(GP.MenoPouzivatela, "sa pripojil ako novy pouzivatel!!! ");
 
-        //ChatovacieOkno ChO = new ChatovacieOkno();
-        //ChO.FunkciaChatovacieOkno();
+        ChatovacieOkno ChO = new ChatovacieOkno();
+        ChO.FunkciaChatovacieOkno();
 
     }
 

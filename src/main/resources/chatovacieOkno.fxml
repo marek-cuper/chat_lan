@@ -12,6 +12,6 @@
       <TextField fx:id="Sprava" layoutX="17.0" layoutY="360.0" prefHeight="26.0" prefWidth="491.0" />
       <TextArea fx:id="ChatovaciaArea" editable="false" layoutX="35.0" layoutY="28.0" prefHeight="282.0" prefWidth="290.0" />
       <CheckBox layoutX="357.0" layoutY="301.0" mnemonicParsing="false" text="Automaticka aktualizacia Chatu" />
-      <Button fx:id="NacitatChatTlacitko" layoutX="357.0" layoutY="28.0" mnemonicParsing="false" onAction="#NacitatChat" text="Obnovit" />
+<!--      <Button fx:id="NacitatChatTlacitko" layoutX="357.0" layoutY="28.0" mnemonicParsing="false" onAction="#NacitatChat" text="Obnovit" />-->
    </children>
 </AnchorPane>
