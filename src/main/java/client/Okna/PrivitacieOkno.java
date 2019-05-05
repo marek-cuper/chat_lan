@@ -20,8 +20,9 @@ public class PrivitacieOkno {
             stage.setTitle("Chat-Lan");
             stage.setScene(new Scene(root1));
             stage.show();
-        } catch(Exception ex){
+        } catch(Exception e){
             System.out.println("Neda sa nacitat nove okno");
+            e.printStackTrace();
         }
 
 
