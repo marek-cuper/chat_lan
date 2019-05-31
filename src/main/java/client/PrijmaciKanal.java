@@ -9,7 +9,7 @@ import java.net.Socket;
 
 public class PrijmaciKanal {
 
-    private ServerSocket prijmaciServerSocket;
+    public ServerSocket prijmaciServerSocket;
     private Socket prijmaciClientSocket;
     private PrintWriter prijmaciOut;
     private BufferedReader prijmaciIn;
@@ -24,8 +24,7 @@ public class PrijmaciKanal {
             prijmaciOut = new PrintWriter(prijmaciClientSocket.getOutputStream(), true);
             prijmaciIn = new BufferedReader(new InputStreamReader(prijmaciClientSocket.getInputStream()));
 
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
 
         }

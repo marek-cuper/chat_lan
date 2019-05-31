@@ -1,7 +1,8 @@
 package client.controller;
 
-import client.Okna.MenoHesloChyboveOkno;
+import client.Okna.VyskakovacieOkno;
 import client.Posielace;
+import client.PrenosovyKanal;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -18,12 +19,16 @@ public class RegistracneOknoController {
 
     @FXML
     public void funkciaRegistrovat(){
+        PrenosovyKanal pk = new PrenosovyKanal();
         Posielace pos = new Posielace();
-        if(pos.jeHesloPouzitelne(TextFieldMeno.getText()) && pos.jeHesloPouzitelne(TextFieldHeslo.getText()))
+
+        if(pos.jeHesloPouzitelne(TextFieldMeno.getText()) && pos.jeHesloPouzitelne(TextFieldHeslo.getText())&&!TextFieldMeno.getText().isEmpty()&&!TextFieldHeslo.getText().isEmpty()){
+
             pos.posielacRegistracie(TextFieldMeno.getText(),TextFieldHeslo.getText());
+            System.out.println("Poslana registracia");}
         else{
-            //MenoHesloChyboveOkno nhco = new MenoHesloChyboveOkno();
-            //nhco.FunkciaMenoHesloChyboveOkno();
+            VyskakovacieOkno nhco = new VyskakovacieOkno();
+            nhco.FunkciaVyskakovacieOkno("Heslo moze obsahovat len cisla a pismena");
         }
     }
 

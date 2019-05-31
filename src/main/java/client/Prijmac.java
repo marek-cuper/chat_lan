@@ -1,5 +1,6 @@
 package client;
 
+import client.Okna.VyskakovacieOkno;
 import server.Server;
 
 import java.io.*;
@@ -12,16 +13,26 @@ public class Prijmac extends  Thread{
         Server S = new Server();
         try {
 
-
+            PrijmaciKanal pk = new PrijmaciKanal();
+            pk.otvoreniePrijmaciehoKanalu(6667);
             while(S.running) {
-                PrijmaciKanal pk = new PrijmaciKanal();
-                pk.otvoreniePrijmaciehoKanalu(6667);
+
 
                 String sprava = pk.getPrijmaciIn().readLine();
-
+                System.out.println(sprava);
                 if (sprava.equals("koniec")) {
                     pk.uzatvoreniePrijmaciehoKanalu();
                     S.running = false;
+                }
+                else if("Registracia:Zlyhala".equals(sprava)){
+                    VyskakovacieOkno vo = new VyskakovacieOkno();
+                    System.out.println("nezaregistrovany");
+                    vo.FunkciaVyskakovacieOkno("Meno uz je zaregistrovane");
+                }
+                else if("Registracia:Prebehla".equals(sprava)){
+                    VyskakovacieOkno vo = new VyskakovacieOkno();
+                    System.out.println("zaregistrovany");
+                    vo.FunkciaVyskakovacieOkno("Uspesne zaregistrovany");
 
                 } else{
                     System.out.println(sprava);

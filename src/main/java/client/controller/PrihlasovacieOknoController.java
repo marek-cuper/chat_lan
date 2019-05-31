@@ -4,6 +4,7 @@ import client.Okna.ChatovacieOkno;
 import client.GlobalnePremenne;
 import client.Okna.RegistracneOkno;
 import client.Posielace;
+import client.PrenosovyKanal;
 import javafx.scene.control.Button;
 
 import javafx.fxml.FXML;
@@ -30,11 +31,11 @@ public class PrihlasovacieOknoController {
         GlobalnePremenne GP = new GlobalnePremenne();
         GP.MenoPouzivatela = TextFieldMeno.getText();
         GP.HesloPouzivatela = TextFieldHeslo.getText();
+
         Posielace pos = new Posielace();
         pos.posielacPrihlasenia(GP.MenoPouzivatela,GP.HesloPouzivatela);
         TlacitkoPokracovat.setText("Otvorene");
-        Posielace PS = new Posielace();
-        //PS.posielacSpravy(GP.MenoPouzivatela, "sa pripojil ako novy pouzivatel!!! ");
+
 
         ChatovacieOkno ChO = new ChatovacieOkno();
         ChO.FunkciaChatovacieOkno();

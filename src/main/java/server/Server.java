@@ -28,10 +28,6 @@ public class Server  {
         }
 
 }
-
-
-
-
     class PrijmacNaServeri extends Thread {
 
         public void run(){
@@ -53,29 +49,10 @@ public class Server  {
                     in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
                     String Sprava = in.readLine();
+                    System.out.println(Sprava);
 
-                    VyberacZPosielaca vzp = new VyberacZPosielaca();
-
-                    if(vzp.Vyberac("typ", Sprava).equals("Registracia")){
-
-                        FileOutputStream fos = new FileOutputStream("Registrovane", true);
-                        String Registracia = ("\n" + vzp.Vyberac("cas",Sprava)+"|" + "0" + "|" + vzp.Vyberac("meno",Sprava) + "|" + vzp.Vyberac("heslo",Sprava) );
-                        fos.write(Registracia.getBytes());
-                        fos.close();
-
-                    }
-
-//                    VyberacZPosielaca VZP = new VyberacZPosielaca();
-//                    System.posielaciOut.println(VZP.Vyberac("cas", Sprava));
-//                    System.posielaciOut.println(VZP.Vyberac("typ", Sprava));
-//                    System.posielaciOut.println(VZP.Vyberac("meno", Sprava));
-//                    System.posielaciOut.println(VZP.Vyberac("heslo", Sprava));
-
-
-
-
-
-
+                    Vyberac vb = new Vyberac();
+                    PosielacSpravy ps = new PosielacSpravy();
 
 
                     if (Sprava.equals("koniec")) {
@@ -85,18 +62,44 @@ public class Server  {
                         serverSocket.close();
                         S.running = false;
 
-                    } else{
+                    }
+                    else if ("Registracia".equals(vb.VyberacFunkcia("typ", Sprava))) {
+                        System.out.println(vb.VyberacFunkcia("meno",Sprava));
+                        try {
+                            if (vb.kontrolerRegistracie(vb.VyberacFunkcia("meno",Sprava))){
+                                System.out.println("Zlyhanie");
+                                ps.poslanieSpravy("Registracia:Zlyhala");
+                            }
+                            else{
+                                ps.poslanieSpravy("Registracia:Prebehla");
+                                FileOutputStream fos = new FileOutputStream("Registrovane", true);
+                                Sprava = Sprava + "\n";
+                                fos.write(Sprava.getBytes());
+                                fos.close();
+                            }
+                        }catch (Exception ex){
+                            ex.printStackTrace();
+                        }
+                    }
+                    else if ("Prihlasenie".equals(vb.VyberacFunkcia("typ", Sprava))) {
+
+                        //DOROBIT KONTROLU PRIHLASENIA
+                    }
+
+//                    VyberacFunkcia VZP = new VyberacFunkcia();
+//                    System.posielaciOut.println(VZP.VyberacFunkcia("cas", Sprava));
+//                    System.posielaciOut.println(VZP.VyberacFunkcia("typ", Sprava));
+//                    System.posielaciOut.println(VZP.VyberacFunkcia("meno", Sprava));
+//                    System.posielaciOut.println(VZP.VyberacFunkcia("heslo", Sprava));
+
+                    else {
                         System.out.println(Sprava);
 
-//                        PosielacSpravy PS = new PosielacSpravy();
-//                        PS.poslanieSpravy(Sprava);
+                        ps.poslanieSpravy(Sprava);
                         Sprava = Sprava + "\n";
                         FileOutputStream fos = new FileOutputStream("ServerovaHistoria", true);
                         fos.write(Sprava.getBytes());
                         fos.close();
-
-
-
                     }
 
                 }
