@@ -10,7 +10,7 @@ import java.net.Socket;
 
 public class PrenosovyKanal {
 
-     public int prijmaciPortServer = 6666;
+    public int prijmaciPortServer = 6666;
 
     public void zasielac(String Sprava){
         Socket posielaciSocket;

@@ -11,7 +11,6 @@ public class Posielace {
         } else {
             String sprava = System.currentTimeMillis() + "|" + "Sprava" + "|" + Pouzivatel + "|" + (text);
 
-
                     pk.zasielac(sprava);
                     System.out.println(sprava);
                 }
@@ -23,10 +22,8 @@ public class Posielace {
 
         String sprava = System.currentTimeMillis() + "|" + "Prihlasenie" + "|" + Meno + "|" + Heslo.hashCode();
 
-
         pk.zasielac(sprava);
-
-
+        System.out.println(sprava);
     }
 
     public void posielacRegistracie(String Meno, String Heslo) {
@@ -36,8 +33,7 @@ public class Posielace {
         String sprava = System.currentTimeMillis() + "|" + "Registracia" + "|" + Meno + "|" + Heslo.hashCode();
 
         pk.zasielac(sprava);
-
-
+        System.out.println(sprava);
     }
 
     public boolean jeHesloPouzitelne(String heslo){

@@ -14,33 +14,28 @@ class Vyberac {
     private static String[] formatPrihReg = {"cas","typ","meno","heslo"};
     private static String[] formatSprav = {"cas","typ","meno","data"};
 
-//    private String Sprava;
-//    public VyberacFunkcia(String Sprava) {
-//        this.Sprava = Sprava;
-//    }
+
     public String VyberacFunkcia(String Udaj, String Sprava) {
 
         String[] castiSpravPole = Sprava.split("\\|");
         Map<String, String> castiSpravMap = new HashMap<String, String>();
 
         //castiSpravMap.put("cas", UpravaCasuNaCitatelny(castiSpravPole[0]));
-
-        //Netusim co s tym je do Bytce
-        //Netusim co s tym je do Bytce
-        //Netusim co s tym je do Bytce
-        //Netusim co s tym je do Bytce
-        //Chyba pri registracii  java.lang.ArrayIndexOutOfBoundsException:
-        for(int i=0;i<=3;i++){
-            if("Sprava".equals(castiSpravPole[1])){
-                castiSpravMap.put(formatSprav[i], castiSpravPole[i]);
-            }else{
-                castiSpravMap.put(formatPrihReg[i], castiSpravPole[i]);
+        if (castiSpravPole.length==4){
+            for(int i=0;i<=3;i++){
+                if("Sprava".equals(castiSpravPole[1])){
+                    castiSpravMap.put(formatSprav[i], castiSpravPole[i]);
+                }else{
+                    castiSpravMap.put(formatPrihReg[i], castiSpravPole[i]);
+                }
             }
+            return castiSpravMap.get(Udaj);
         }
-        return castiSpravMap.get(Udaj);
+        System.out.println("Vyberac funkcia chyba");
+        return ("chyba");
     }
 
-    public boolean kontrolerRegistracie(String Meno)throws Exception{
+    public boolean kontrolerRegistracie(String Meno){
         try {
             try (BufferedReader br = new BufferedReader(new FileReader("Registrovane"))) {
                 String line;
@@ -55,6 +50,22 @@ class Vyberac {
         }
         return false;
     }
+    public boolean kontrolerPrihlasenia(String Meno, String Heslo){
+        try {
+            try (BufferedReader br = new BufferedReader(new FileReader("Registrovane"))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if (Meno.equals(VyberacFunkcia("meno",line)) && Heslo.equals(VyberacFunkcia("heslo",line))){
+                        return true;
+                    }
+                }
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 
 

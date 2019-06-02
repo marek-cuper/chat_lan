@@ -64,14 +64,14 @@ public class Server  {
 
                     }
                     else if ("Registracia".equals(vb.VyberacFunkcia("typ", Sprava))) {
-                        System.out.println(vb.VyberacFunkcia("meno",Sprava));
                         try {
                             if (vb.kontrolerRegistracie(vb.VyberacFunkcia("meno",Sprava))){
-                                System.out.println("Zlyhanie");
+                                System.out.println("Zlyhanie reg");
                                 ps.poslanieSpravy("Registracia:Zlyhala");
                             }
                             else{
                                 ps.poslanieSpravy("Registracia:Prebehla");
+                                System.out.println("Prebehla reg ");
                                 FileOutputStream fos = new FileOutputStream("Registrovane", true);
                                 Sprava = Sprava + "\n";
                                 fos.write(Sprava.getBytes());
@@ -82,6 +82,18 @@ public class Server  {
                         }
                     }
                     else if ("Prihlasenie".equals(vb.VyberacFunkcia("typ", Sprava))) {
+                        try {
+                            if (!vb.kontrolerPrihlasenia(vb.VyberacFunkcia("meno",Sprava),vb.VyberacFunkcia("heslo",Sprava))){
+                                System.out.println("Zlyhalo prih");
+                                ps.poslanieSpravy("Prihlasenie:Zlyhalo");
+                            }
+                            else {
+                                ps.poslanieSpravy("Prihlasenie:Prebehlo");
+                                System.out.println("Prebehlo prih");
+                            }
+                        }catch (Exception ex){
+                            ex.printStackTrace();
+                        }
 
                         //DOROBIT KONTROLU PRIHLASENIA
                     }

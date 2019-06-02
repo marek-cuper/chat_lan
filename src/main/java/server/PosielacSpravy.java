@@ -7,39 +7,27 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class PosielacSpravy {
+    static int prijmaciPortServer = 6667;
     public static void poslanieSpravy( String text) {
-        Socket clientSocket;
-        PrintWriter out;
-        BufferedReader in;
+        Socket posielaciSocket;
+        PrintWriter posielaciOut;
+        BufferedReader posielaciIn;
+        if(text!=null){
+            try{
+                posielaciSocket = new Socket("localhost", prijmaciPortServer);
+                posielaciOut = new PrintWriter(posielaciSocket.getOutputStream(), true);
+                posielaciIn = new BufferedReader(new InputStreamReader(posielaciSocket.getInputStream()));
 
+                posielaciOut.println(text);
 
+                posielaciIn.close();
+                posielaciOut.close();
+                posielaciSocket.close();
 
-        try {
-            clientSocket = new Socket("localhost", 6667);
-            out = new PrintWriter(clientSocket.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
-            if (text.equals("koniec")) {
-                out.println(text);
-                in.close();
-                out.close();
-                clientSocket.close();
-
-
-
-            } else{
-
-                out.println(text);
+            }catch (IOException e) {
+                e.printStackTrace();
             }
-
-
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
-
 
     }
 }

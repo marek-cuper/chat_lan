@@ -21,7 +21,6 @@ public class PrihlasovacieOknoController {
     public Button TlacitkoPokracovat;
     public TextField TextFieldMeno;
     public TextField TextFieldHeslo;
-    public TextArea ChatovaciaArea;
 
 
 
@@ -33,12 +32,10 @@ public class PrihlasovacieOknoController {
         GP.HesloPouzivatela = TextFieldHeslo.getText();
 
         Posielace pos = new Posielace();
-        pos.posielacPrihlasenia(GP.MenoPouzivatela,GP.HesloPouzivatela);
-        TlacitkoPokracovat.setText("Otvorene");
+        pos.posielacPrihlasenia(TextFieldMeno.getText(),TextFieldHeslo.getText());
 
 
-        ChatovacieOkno ChO = new ChatovacieOkno();
-        ChO.FunkciaChatovacieOkno();
+
 
     }
 

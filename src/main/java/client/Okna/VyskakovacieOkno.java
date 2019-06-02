@@ -13,7 +13,7 @@ public class VyskakovacieOkno {
     public void FunkciaVyskakovacieOkno(String Text){
 
 
-        System.out.println("Otvorenie Vykakovacieho okna");
+        System.out.println("Otvorenie Vyskakovacieho okna");
 
         Platform.runLater(new Runnable() {
             @Override
