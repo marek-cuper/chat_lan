@@ -56,7 +56,7 @@ public class Prijmac extends  Thread{
                 else if("Prihlasenie:Prebehlo".equals(sprava)){
                     System.out.println("Prihlaseny");
                     ChatovacieOkno ChO = new ChatovacieOkno();
-                    ChO.FunkciaChatovacieOkno(nc.nacitanieChatuFunkcia());
+                    ChO.FunkciaChatovacieOkno();
 
 
                 }
