@@ -3,6 +3,8 @@ package server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Server  {
@@ -30,6 +32,10 @@ public class Server  {
 }
     class PrijmacNaServeri extends Thread {
 
+        List<Integer> portyKlientov = new ArrayList<Integer>();
+       // private static int[] portyKlientov = {};
+        int poslednyPortKlienta;
+
         public void run(){
             ServerSocket serverSocket;
             Socket clientSocket;
@@ -53,7 +59,12 @@ public class Server  {
 
                     Vyberac vb = new Vyberac();
                     PosielacSpravy ps = new PosielacSpravy();
+                    PracaSPortmi psp = new PracaSPortmi();
+                    poslednyPortKlienta = Integer.parseInt(vb.VyberacFunkcia("port",Sprava));
 
+
+                    if(!psp.nachadzaSaPortVZozname(poslednyPortKlienta,portyKlientov)){
+                            portyKlientov.add(poslednyPortKlienta);}
 
                     if (Sprava.equals("koniec")) {
                         in.close();
@@ -67,10 +78,19 @@ public class Server  {
                         try {
                             if (vb.kontrolerRegistracie(vb.VyberacFunkcia("meno",Sprava))){
                                 System.out.println("Zlyhanie reg");
-                                ps.poslanieSpravy("Registracia:Zlyhala");
+                                for(int i=0;i<portyKlientov.size();i++){
+                                    System.out.println(portyKlientov.get(i)+"dd");
+                                    ps.poslanieSpravy("Registracia:Zlyhala",portyKlientov.get(i));
+                                }
+
                             }
                             else{
-                                ps.poslanieSpravy("Registracia:Prebehla");
+
+                                for(int i=0;i<portyKlientov.size();i++){
+                                    System.out.println(portyKlientov.get(i)+"dd");
+                                    ps.poslanieSpravy("Registracia:Prebehla",portyKlientov.get(i));
+
+                                }
                                 System.out.println("Prebehla reg ");
                                 FileOutputStream fos = new FileOutputStream("Registrovane", true);
                                 Sprava = Sprava + "\n";
@@ -85,29 +105,28 @@ public class Server  {
                         try {
                             if (!vb.kontrolerPrihlasenia(vb.VyberacFunkcia("meno",Sprava),vb.VyberacFunkcia("heslo",Sprava))){
                                 System.out.println("Zlyhalo prih");
-                                ps.poslanieSpravy("Prihlasenie:Zlyhalo");
+                                for(int i=0;i<portyKlientov.size();i++){
+                                    ps.poslanieSpravy("Prihlasenie:Zlyhalo",portyKlientov.get(i));
+                                }
+
                             }
                             else {
-                                ps.poslanieSpravy("Prihlasenie:Prebehlo");
+                                for(int i=0;i<portyKlientov.size();i++){
+                                    ps.poslanieSpravy("Prihlasenie:Prebehlo",portyKlientov.get(i));
+                                }
+
                                 System.out.println("Prebehlo prih");
                             }
                         }catch (Exception ex){
                             ex.printStackTrace();
                         }
 
-                        //DOROBIT KONTROLU PRIHLASENIA
                     }
-
-//                    VyberacFunkcia VZP = new VyberacFunkcia();
-//                    System.posielaciOut.println(VZP.VyberacFunkcia("cas", Sprava));
-//                    System.posielaciOut.println(VZP.VyberacFunkcia("typ", Sprava));
-//                    System.posielaciOut.println(VZP.VyberacFunkcia("meno", Sprava));
-//                    System.posielaciOut.println(VZP.VyberacFunkcia("heslo", Sprava));
 
                     else {
                         System.out.println(Sprava);
 
-                        ps.poslanieSpravy(Sprava);
+                        ps.poslanieSpravy(Sprava,poslednyPortKlienta);
                         Sprava = Sprava + "\n";
                         FileOutputStream fos = new FileOutputStream("ServerovaHistoria", true);
                         fos.write(Sprava.getBytes());

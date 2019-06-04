@@ -2,6 +2,7 @@ package client;
 
 import client.Okna.ChatovacieOkno;
 import client.Okna.VyskakovacieOkno;
+import client.controller.ChatovacieOknoController;
 import server.Server;
 
 import java.io.*;
@@ -10,6 +11,9 @@ import java.net.Socket;
 
 
 public class Prijmac extends  Thread{
+
+    PracaSPortom psp = new PracaSPortom();
+    public static int port = PracaSPortom.nastavPortKlienta();
 
     public void run(){
 
@@ -20,11 +24,10 @@ public class Prijmac extends  Thread{
         BufferedReader in;
         Server S = new Server();
 
-        PracaSPortom psp = new PracaSPortom();
-        int port;
-        port= psp.nastavPortKlienta();
+
 
         try {
+
             serverSocket = new ServerSocket(port);
 
 
@@ -36,6 +39,7 @@ public class Prijmac extends  Thread{
 
                 String sprava = in.readLine();
                 System.out.println(sprava);
+                nacitanieChatu nc = new nacitanieChatu();
 
                 VyskakovacieOkno vo = new VyskakovacieOkno();
                 if ("koniec".equals(sprava)) {
@@ -52,7 +56,7 @@ public class Prijmac extends  Thread{
                 else if("Prihlasenie:Prebehlo".equals(sprava)){
                     System.out.println("Prihlaseny");
                     ChatovacieOkno ChO = new ChatovacieOkno();
-                    ChO.FunkciaChatovacieOkno();
+                    ChO.FunkciaChatovacieOkno(nc.nacitanieChatuFunkcia());
 
 
                 }
@@ -68,6 +72,13 @@ public class Prijmac extends  Thread{
                     fos.close();
 
                 }
+                ChatovacieOknoController coc = new ChatovacieOknoController();
+
+                File chistoria = new File("ClientHistoria");
+
+                if(chistoria.length()==0){}
+                else  coc.nacitatChat();
+
 
             }
         } catch (IOException e) {

@@ -7,14 +7,13 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class PosielacSpravy {
-    static int prijmaciPortServer = 6667;
-    public static void poslanieSpravy( String text) {
+    public static void poslanieSpravy( String text,int portKlienta) {
         Socket posielaciSocket;
         PrintWriter posielaciOut;
         BufferedReader posielaciIn;
         if(text!=null){
             try{
-                posielaciSocket = new Socket("localhost", prijmaciPortServer);
+                posielaciSocket = new Socket("localhost", portKlienta);
                 posielaciOut = new PrintWriter(posielaciSocket.getOutputStream(), true);
                 posielaciIn = new BufferedReader(new InputStreamReader(posielaciSocket.getInputStream()));
 

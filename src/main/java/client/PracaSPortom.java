@@ -6,16 +6,15 @@ import java.net.ServerSocket;
 
 public class PracaSPortom {
 
-    public static int nastavPortKlienta(){
+    public static int nastavPortKlienta() {
         int skusanyPort = 6667;
-        while(true){
-            if(volnyPort(skusanyPort)){
+        do {
+            if (volnyPort(skusanyPort)) {
                 return skusanyPort;
-            }
-            else{
+            } else {
                 skusanyPort++;
             }
-        }
+        } while (true);
 
     }
 

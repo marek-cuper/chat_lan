@@ -5,11 +5,12 @@ public class Posielace {
     public void posielacSpravy(String Pouzivatel, String text) {
 
         PrenosovyKanal pk = new PrenosovyKanal();
+        Prijmac pr = new Prijmac();
 
         if (text.equals("koniec")) {
             pk.zasielac(text);
         } else {
-            String sprava = System.currentTimeMillis() + "|" + "Sprava" + "|" + Pouzivatel + "|" + (text);
+            String sprava = System.currentTimeMillis() + "|" + "Sprava" + "|" + pr.port  +"|" + Pouzivatel + "|" + (text);
 
                     pk.zasielac(sprava);
                     System.out.println(sprava);
@@ -19,8 +20,9 @@ public class Posielace {
     public void posielacPrihlasenia(String Meno, String Heslo) {
 
         PrenosovyKanal pk = new PrenosovyKanal();
+        Prijmac pr = new Prijmac();
 
-        String sprava = System.currentTimeMillis() + "|" + "Prihlasenie" + "|" + Meno + "|" + Heslo.hashCode();
+        String sprava = System.currentTimeMillis() + "|" + "Prihlasenie" + "|" + pr.port +"|" + Meno + "|" + Heslo.hashCode();
 
         pk.zasielac(sprava);
         System.out.println(sprava);
@@ -29,8 +31,9 @@ public class Posielace {
     public void posielacRegistracie(String Meno, String Heslo) {
 
         PrenosovyKanal pk = new PrenosovyKanal();
+        Prijmac pr = new Prijmac();
 
-        String sprava = System.currentTimeMillis() + "|" + "Registracia" + "|" + Meno + "|" + Heslo.hashCode();
+        String sprava = System.currentTimeMillis() + "|" + "Registracia" + "|" + pr.port + "|" + Meno + "|" + Heslo.hashCode();
 
         pk.zasielac(sprava);
         System.out.println(sprava);

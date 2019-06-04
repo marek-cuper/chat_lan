@@ -11,8 +11,8 @@ import java.util.Map;
 
 class Vyberac {
 
-    private static String[] formatPrihReg = {"cas","typ","meno","heslo"};
-    private static String[] formatSprav = {"cas","typ","meno","data"};
+    private static String[] formatPrihReg = {"cas","typ","port","meno","heslo"};
+    private static String[] formatSprav = {"cas","typ","port","meno","data"};
 
 
     public String VyberacFunkcia(String Udaj, String Sprava) {
@@ -21,8 +21,8 @@ class Vyberac {
         Map<String, String> castiSpravMap = new HashMap<String, String>();
 
         //castiSpravMap.put("cas", UpravaCasuNaCitatelny(castiSpravPole[0]));
-        if (castiSpravPole.length==4){
-            for(int i=0;i<=3;i++){
+        if (castiSpravPole.length==5){
+            for(int i=0;i<=4;i++){
                 if("Sprava".equals(castiSpravPole[1])){
                     castiSpravMap.put(formatSprav[i], castiSpravPole[i]);
                 }else{

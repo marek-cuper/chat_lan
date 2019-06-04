@@ -13,15 +13,9 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0">
          <children>
-             <ImageView fitHeight="402.0" fitWidth="589.0" pickOnBounds="true" preserveRatio="true">
-                 <image>
-                     <Image url="@../../../../../Desktop/3yt.jpg" />
-                 </image>
-             </ImageView>
             <Button fx:id="TlacitkoPokracovat" layoutX="432.0" layoutY="269.0" mnemonicParsing="false" onAction="#prihlasovacieOknoTlacitko" text="Prihlasit" />
-            <TextField fx:id="TextFieldMeno" layoutX="392.0" layoutY="122.0" promptText="Meno" />
-            <TextField fx:id="TextFieldHeslo" layoutX="392.0" layoutY="163.0" promptText="Heslo" />
-            <TextField fx:id="IpServera" layoutX="392.0" layoutY="207.0" promptText="Ip servera" />
+            <TextField fx:id="TextFieldMeno" layoutX="392.0" layoutY="153.0" promptText="Meno" />
+            <TextField fx:id="TextFieldHeslo" layoutX="392.0" layoutY="213.0" promptText="Heslo" />
             <Label layoutX="75.0" layoutY="26.0" prefHeight="65.0" prefWidth="451.0" text="Vitajte v aplikacii Chat-Lan!!!" wrapText="true">
                <font>
                   <Font size="30.0" />

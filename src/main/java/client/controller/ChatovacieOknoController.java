@@ -2,8 +2,10 @@ package client.controller;
 
 import client.GlobalnePremenne;
 import client.Posielace;
+import client.nacitanieChatu;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
@@ -21,8 +23,14 @@ public class ChatovacieOknoController {
     @FXML
     public TextField Sprava;
     public CheckBox Obnovovac;
+    public TextArea ChatovaciaArea;
 
     public void nacitatChat(){
+        nacitanieChatu nc = new nacitanieChatu();
+        if(nc.nacitanieChatuFunkcia()==null){
+        }
+        else ChatovaciaArea.setText(nc.nacitanieChatuFunkcia());
+
 
 
 

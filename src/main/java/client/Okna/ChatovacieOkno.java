@@ -1,5 +1,7 @@
 package client.Okna;
 
+import client.controller.ChatovacieOknoController;
+import client.controller.VyskakovacieOknoController;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +10,7 @@ import javafx.stage.Stage;
 
 public class ChatovacieOkno {
 
-    public void FunkciaChatovacieOkno(){
+    public void FunkciaChatovacieOkno(String Text){
 
 
         System.out.println("Otvorenie chatovacieho okna");
@@ -17,6 +19,9 @@ public class ChatovacieOkno {
             @Override
             public void run() {
                 try {
+                    ChatovacieOknoController coc = new ChatovacieOknoController();
+                    coc.TextNazobrazenie = Text;
+
                     FXMLLoader fxmloader = new FXMLLoader(getClass().getClassLoader().getResource("chatovacieOkno.fxml"));
                     Parent root1 = (Parent)fxmloader.load();
                     Stage stage = new Stage();
