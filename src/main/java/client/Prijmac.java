@@ -76,8 +76,9 @@ public class Prijmac extends  Thread{
 
                 File chistoria = new File("ClientHistoria");
 
+                System.out.println(nc.nacitanieChatuFunkcia());
                 if(chistoria.length()==0){}
-                else  coc.nacitatChat();
+                //else  coc.nacitatChat();
 
 
             }

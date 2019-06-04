@@ -27,20 +27,30 @@ public class ChatovacieOknoController {
 
     public void nacitatChat(){
         nacitanieChatu nc = new nacitanieChatu();
-        if(nc.nacitanieChatuFunkcia()==null){
-        }
-        else ChatovaciaArea.setText(nc.nacitanieChatuFunkcia());
-
-
-
+//        if(nc.nacitanieChatuFunkcia()==null){
+//        }
+        String text = nc.nacitanieChatuFunkcia();
+         ChatovaciaArea.setText(text);
 
     }
     public void poslatSpravu(){
 
-
         Posielace ps = new Posielace();
         GlobalnePremenne GP = new GlobalnePremenne();
         ps.posielacSpravy(GP.MenoPouzivatela, Sprava.getText());
+        Sprava.clear();
+        nacitanieChatu nc = new nacitanieChatu();
+
+        String text = nc.nacitanieChatuFunkcia();
+        try {
+
+            Thread.sleep(100);
+            ChatovaciaArea.setText(text);
+
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
+
 
     }
 
